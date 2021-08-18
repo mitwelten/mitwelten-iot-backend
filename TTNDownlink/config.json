@@ -1,0 +1,14 @@
+{
+    "username": "<TTN-MQTTINTEGRATION-USERNAME>",
+    "password": "<TTN-MQTTINTEGRATION-APIKEY>",
+    "broker": "eu1.cloud.thethings.network",
+    "port": 1883,
+    "topicprefix": "v3/<APPLICATION-NAME>@ttn/devices/",
+    "topicsuffix": "/down/push",
+    "devices": [
+        "<ID_OF_DEVICE#1>",
+        "<ID_OF_DEVICE#2>",
+        "<ID_OF_DEVICE#3>",
+        "<ID_OF_DEVICE#4>"
+    ]
+}
