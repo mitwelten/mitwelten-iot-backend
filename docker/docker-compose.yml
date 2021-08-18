@@ -38,11 +38,23 @@ services:
       - GF_INSTALL_PLUGINS=agenty-flowcharting-panel
       - GF_INSTALL_PLUGINS=grafana-worldmap-panel
       - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD}
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_SECURITY_ALLOW_EMBEDDING=true
+      - GF_SECURITY_COOKIE_SAMESITE=lax
+      - GF_LIVE_ALLOWED_ORIGINS=${GRAFANA_ALLOWED-ORIGIN}
+      - GF_SERVER_SERVE_FROM_SUB_PATH=true
+      - GF_RENDERING_SERVER_URL=http://renderer:8081/render
+      - GF_RENDERING_CALLBACK_URL=http://mitwelten-grafana:3000/
     logging:
       driver: "json-file"
       options:
         max-size: "100m"
         max-file: "5"
+
+  renderer:
+    image: grafana/grafana-image-renderer:latest
+    ports:
+      - 8081
 
   telegraf:
     image: telegraf
