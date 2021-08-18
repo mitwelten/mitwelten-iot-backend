@@ -2,6 +2,7 @@ import paho.mqtt.client as mqtt
 import ssl
 import json
 
+# send payload 0x83 to the node
 command = """
             {
             "downlinks": [{
